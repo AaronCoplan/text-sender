@@ -1,6 +1,8 @@
 package coplan.execution;
 
 
+import coplan.messaging.Sender;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -17,7 +19,7 @@ public class Driver {
         Prompter prompter = new Prompter();
 
         //gets the phone number
-        String phoneNumber = prompter.prompt("Please enter a valid 10-digit US phone number:");
+        final String phoneNumber = prompter.prompt("Please enter a valid 10-digit US phone number:");
         if(phoneNumber.length() != 10){
             System.out.println("Invalid phone number!");
             System.exit(-1);
@@ -35,28 +37,30 @@ public class Driver {
             System.out.println("Invalid carrier!");
             System.exit(-1);
         }
-        String carrierExtension = carriers.get(carrierName);
+        final String carrierExtension = carriers.get(carrierName);
 
         //gets the number of messages to send
-        int numMessages = Integer.parseInt(prompter.prompt("Enter the number of messages you would like to send:"));
+        final int numMessages = Integer.parseInt(prompter.prompt("Enter the number of messages you would like to send:"));
         if(numMessages <= 0 || numMessages >= 1000){
             System.out.println("Invalid number of messages! Please choose a number between 1 and 999 inclusive.");
             System.exit(-1);
         }
 
         //gets the number of seconds to delay between messages
-        int delay = Integer.parseInt(prompter.prompt("Enter the delay in seconds between each message:"));
+        final int delay = Integer.parseInt(prompter.prompt("Enter the delay in seconds between each message:"));
         if(delay <= 0 || delay >= 10 * 60){
             System.out.println("Invalid delay between messages. Please choose a value between one second and ten minutes.");
             System.exit(-1);
         }
 
-        //Sender.send(phoneNumber, carrierExtension, numMessages, delay);
-        System.out.println("Successfully gathered all information:");
-        System.out.println(phoneNumber);
-        System.out.println(carrierExtension);
-        System.out.println(numMessages);
-        System.out.println(delay);
+        //gets your gmail username
+        final String gmailUsername = prompter.prompt("Enter your gmail username:");
 
+        //gets your gmail password (hidden user input)
+        final String gmailPassword = prompter.promptPassword("Enter your gmail password:");
+
+        System.out.println("\nInput recieved successfully.\n");
+
+        Sender.send(phoneNumber, carrierExtension, numMessages, delay, gmailUsername, gmailPassword);
     }
 }

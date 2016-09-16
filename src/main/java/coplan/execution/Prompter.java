@@ -17,4 +17,9 @@ public class Prompter {
         System.out.print(message + " ");
         return scanner.nextLine();
     }
+
+    public String promptPassword(String message){
+        System.out.print(message + " ");
+        return new String(System.console().readPassword());
+    }
 }
