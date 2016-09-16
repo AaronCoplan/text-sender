@@ -40,7 +40,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>afcoplan.execution.Driver</mainClass>
+              <mainClass>coplan.execution.Driver</mainClass>
             </manifest>
           </archive>
         </configuration>
