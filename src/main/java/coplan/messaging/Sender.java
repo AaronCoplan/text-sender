@@ -34,15 +34,30 @@ public class Sender {
 
                 System.out.println("Message built successfully.");
 
+                //send the first message outside the loop to check for authentication errors
                 try{
                     Transport.send(message);
-                    System.out.println("Message sent successfully.");
+                    System.out.println("Message 1 sent successfully.");
                 }catch(Exception e){
                     if(e.getClass().equals(javax.mail.AuthenticationFailedException.class)){
                         System.out.println("Invalid gmail username and/or password!");
                         System.exit(-1);
                     }else{
                         e.printStackTrace();
+                    }
+                }
+
+                int numSent = 1;
+                while(numSent < numMessages){
+                    try{
+                        Thread.sleep(delay * 1000); //converts seconds to ms
+                        
+                        Transport.send(message);
+
+                        numSent++; //numSent only increments on successful message send, not just attempt
+                        System.out.println("Message " + numSent + " sent successfully.");
+                    }catch(Exception e){
+                        System.out.println(e.getMessage());
                     }
                 }
 
