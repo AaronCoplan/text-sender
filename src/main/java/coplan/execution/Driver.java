@@ -11,7 +11,7 @@ public class Driver {
     public static void main(String[] args) {
 
         HashMap<String,String> carriers = new HashMap<String,String>();
-        carriers.put("AT&T", "attemail");
+        carriers.put("AT&T", "@txt.att.net");
         carriers.put("Verizon", "vzwpix");
 
         Set<String> carrierList = carriers.keySet();
@@ -39,6 +39,9 @@ public class Driver {
         }
         final String carrierExtension = carriers.get(carrierName);
 
+        //gets the message text
+        final String messageText = prompter.prompt("Enter the text of the message you would like to send:");
+
         //gets the number of messages to send
         final int numMessages = Integer.parseInt(prompter.prompt("Enter the number of messages you would like to send:"));
         if(numMessages <= 0 || numMessages >= 1000){
@@ -48,8 +51,8 @@ public class Driver {
 
         //gets the number of seconds to delay between messages
         final int delay = Integer.parseInt(prompter.prompt("Enter the delay in seconds between each message:"));
-        if(delay <= 0 || delay >= 10 * 60){
-            System.out.println("Invalid delay between messages. Please choose a value between one second and ten minutes.");
+        if(delay < 0 || delay >= 10 * 60){
+            System.out.println("Invalid delay between messages. Please choose a value between zero seconds and ten minutes.");
             System.exit(-1);
         }
 
@@ -61,6 +64,6 @@ public class Driver {
 
         System.out.println("\nInput recieved successfully.\n");
 
-        Sender.send(phoneNumber, carrierExtension, numMessages, delay, gmailUsername, gmailPassword);
+        Sender.send(phoneNumber, carrierExtension, numMessages, delay, messageText, gmailUsername, gmailPassword);
     }
 }
