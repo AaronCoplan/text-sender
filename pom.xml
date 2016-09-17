@@ -4,7 +4,7 @@
 
   <groupId>coplan</groupId>
   <artifactId>text-sender</artifactId>
-  <version>v0.0.1</version>
+  <version>v1.0.0</version>
   <packaging>jar</packaging>
 
   <name>text-sender</name>
