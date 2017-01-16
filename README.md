@@ -15,5 +15,5 @@
 * Run `mvn clean package`
 * Run `java -jar target/web-app-v0.0.1.jar &` (log file will be named text-bomb-webapp.log)
 * In a browser, navigate to http://localhost:8080
-* When done, `run ps aux | grep webapp`
+* When done, run: `ps aux | grep webapp`
 * Get the process number from the results and run: `kill <process number>`
