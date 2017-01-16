@@ -14,7 +14,7 @@ public class Application extends WebMvcConfigurerAdapter {
     public static void main(String[] args){
 
         //redirect System.out to a log file
-        String logfilePath = "/home/afcoplan/text-bomb-webapp.log";
+        String logfilePath = "./text-bomb-webapp.log";
         File logFile = new File(logfilePath);
         if(logFile.exists()){
             logFile.delete();
