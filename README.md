@@ -1,6 +1,8 @@
 # text-sender
 
-### Instructions for how to run single instance (assuming Maven is installed):
+Command line or webapp based text sender. Prompts for user input and sends messages based on the input parameters.
+
+## Instructions for how to run single instance:
 
 * Clone the repository: `git clone https://github.com/AaronCoplan/text-sender` or `git clone git@github.com:AaronCoplan/text-sender.git`
 * Change directory into the project directory: `cd text-sender/text-sender`
@@ -8,7 +10,7 @@
 * Run `java -jar target/text-sender-v1.0.0-jar-with-dependencies.jar`
 * Respond to the prompts and enjoy!
 
-### Instructions for running the webapp (assuming Maven is installed):
+## Instructions for running the webapp:
 
 * Clone the repository: `git clone https://github.com/AaronCoplan/text-sender` or `git clone git@github.com:AaronCoplan/text-sender.git`
 * Change directory into the project directory: `cd text-sender/text-sender-webapp/`
@@ -17,3 +19,11 @@
 * In a browser, navigate to http://localhost:8080
 * When done, run: `ps aux | grep webapp`
 * Get the process number from the results and run: `kill <process number>`
+
+## Dependencies
+
+The following dependencies must be met in order for the above build instructions to work:
+
+* Maven
+* Java
+* Git
