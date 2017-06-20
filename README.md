@@ -2,6 +2,8 @@
 
 Command line or webapp based text sender. Prompts for user input and sends messages based on the input parameters.
 
+This project is licensed under the MIT License.
+
 ## Instructions for how to run single instance:
 
 * Clone the repository: `git clone https://github.com/AaronCoplan/text-sender` or `git clone git@github.com:AaronCoplan/text-sender.git`
